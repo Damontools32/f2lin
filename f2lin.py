@@ -12,7 +12,7 @@ bot = TelegramClient('bot', api_id, api_hash).start(bot_token=bot_token)
 
 domain = 'yourdomain.com'  # جایگزینی با دامنه خود
 
-download_path = '/root/mydownloads'
+download_path = '/var/www/html/downloads'
 if not os.path.exists(download_path):
     os.makedirs(download_path)
 
@@ -31,7 +31,8 @@ async def handler(event):
     if event.message.file:
         file = await bot.download_media(event.message, download_path)
         # با استفاده از دامنه خود، URL دانلود را ایجاد می کنیم
-        download_url = f'https://{domain}/{file}'
+        file_name = os.path.basename(file)
+        download_url = f'https://{domain}/downloads/{file_name}'
         await event.respond(download_url)
 
 while True:
