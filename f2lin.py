@@ -10,7 +10,7 @@ bot_token = 'YOUR_BOT_TOKEN'  # جایگزینی با توکن ربات خود
 
 bot = TelegramClient('bot', api_id, api_hash).start(bot_token=bot_token)
 
-domain = 'yourdomain.com'  # جایگزینی با دامنه خود
+domain = 'f2l.daboot.tk'  # جایگزینی با دامنه خود
 
 download_path = '/var/www/html/downloads'
 if not os.path.exists(download_path):
